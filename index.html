@@ -11,9 +11,18 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
 
+  <!-- Calendly: warm up DNS + TLS + critical assets early -->
+  <link rel="preconnect" href="https://calendly.com" crossorigin />
+  <link rel="preconnect" href="https://assets.calendly.com" crossorigin />
+  <link rel="dns-prefetch" href="https://calendly.com" />
+  <link rel="preload" as="script" href="https://assets.calendly.com/assets/external/widget.js" />
+
   <link rel="preconnect" href="https://rsms.me/" />
   <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
-  <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
+
+  <!-- Calendly CSS loaded non-blocking — only needed when popup opens -->
+  <link rel="preload" href="https://assets.calendly.com/assets/external/widget.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" /></noscript>
 
   <style>
     /* ─────────────────────────────────────────────
@@ -975,7 +984,7 @@
           </button>
 
           <p class="price-fine">
-            50% upfront. 50% on launch. Money-back if we don't recover at least 50 conversations in week one.
+            50% upfront. 50% on launch. 50% money-back if your AI agent doesn't handle at least 50 customer conversations in the first week after launch.
           </p>
         </div>
       </div>
@@ -1053,6 +1062,16 @@
 
           <div class="faq-item">
             <button class="faq-q" aria-expanded="false">
+              <span>How does the money-back guarantee work?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a"><div class="faq-a-inner">
+              After we launch your agent, we monitor performance for 7 days. If the AI doesn't handle at least 50 customer conversations during that week, we refund 50% of your fee. "Handled" means a real customer conversation where the AI provided a substantive answer — not test messages or spam. You see the live count on a shared dashboard from day one. The full guarantee terms are in your contract.
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
               <span>Can we cancel the retainer anytime?</span>
               <span class="faq-icon" aria-hidden="true"></span>
             </button>
@@ -1110,15 +1129,51 @@
     // ─── CALENDLY ───
     const CALENDLY_URL = 'https://calendly.com/constantine-shopreply/30min?background_color=0a0a0a&text_color=ffffff&primary_color=ff6b6b&hide_gdpr_banner=1';
 
+    // 1) Open popup — with brief wait if widget.js still loading
     function openCalendly() {
       if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
         window.Calendly.initPopupWidget({ url: CALENDLY_URL });
-      } else {
-        // Fallback: if widget script hasn't loaded yet, open in a new tab
-        window.open(CALENDLY_URL, '_blank', 'noopener');
+        return false;
       }
+      // widget.js not ready yet — poll for up to 1.2s, then fall back to new tab
+      let tries = 0;
+      const poll = setInterval(() => {
+        tries++;
+        if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
+          clearInterval(poll);
+          window.Calendly.initPopupWidget({ url: CALENDLY_URL });
+        } else if (tries > 24) {
+          clearInterval(poll);
+          window.open(CALENDLY_URL, '_blank', 'noopener');
+        }
+      }, 50);
       return false;
     }
+
+    // 2) Pre-warm Calendly content on first sign of intent (hover/focus/touch)
+    //    — by the time user clicks, HTTP cache is warm and popup feels instant
+    let calendlyPrefetched = false;
+    function prefetchCalendly() {
+      if (calendlyPrefetched) return;
+      calendlyPrefetched = true;
+      const frame = document.createElement('iframe');
+      frame.src = CALENDLY_URL;
+      frame.setAttribute('aria-hidden', 'true');
+      frame.setAttribute('tabindex', '-1');
+      frame.setAttribute('loading', 'eager');
+      frame.style.cssText = 'position:absolute;width:0;height:0;left:-9999px;top:-9999px;border:0;visibility:hidden;pointer-events:none;';
+      document.body.appendChild(frame);
+      // Remove after assets are HTTP-cached — keeps memory clean,
+      // popup iframe will reuse cached resources
+      setTimeout(() => frame.remove(), 8000);
+    }
+
+    // Wire prefetch to every Calendly CTA
+    document.querySelectorAll('[onclick*="openCalendly"]').forEach((el) => {
+      el.addEventListener('mouseenter', prefetchCalendly, { once: true, passive: true });
+      el.addEventListener('focus',      prefetchCalendly, { once: true, passive: true });
+      el.addEventListener('touchstart', prefetchCalendly, { once: true, passive: true });
+    });
 
     // ─── NAV: solid on scroll ───
     const nav = document.getElementById('nav');
