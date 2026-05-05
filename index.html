@@ -13,6 +13,7 @@
 
   <link rel="preconnect" href="https://rsms.me/" />
   <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+  <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
 
   <style>
     /* ─────────────────────────────────────────────
@@ -826,9 +827,9 @@
           <li><a href="#pricing">Pricing</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
-        <a href="https://calendly.com/PLACEHOLDER" class="btn btn-primary btn-nav" target="_blank" rel="noopener">
+        <button type="button" class="btn btn-primary btn-nav" onclick="openCalendly()">
           Book a call
-        </a>
+        </button>
       </nav>
     </div>
   </header>
@@ -847,12 +848,12 @@
         </p>
 
         <div class="hero-ctas reveal">
-          <a href="https://calendly.com/PLACEHOLDER" class="btn btn-primary" target="_blank" rel="noopener">
+          <button type="button" class="btn btn-primary" onclick="openCalendly()">
             Book a free 15-min audit
             <svg class="arrow" viewBox="0 0 14 14" fill="none" aria-hidden="true">
               <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-          </a>
+          </button>
           <a href="#how" class="btn btn-ghost">See how it works</a>
         </div>
 
@@ -966,12 +967,12 @@
             <div class="retainer-sub">Monitoring, monthly tuning, up to 4 hours of changes.</div>
           </div>
 
-          <a href="https://calendly.com/PLACEHOLDER" class="btn btn-primary price-cta" target="_blank" rel="noopener">
+          <button type="button" class="btn btn-primary price-cta" onclick="openCalendly()">
             Book a free audit call
             <svg class="arrow" viewBox="0 0 14 14" fill="none" aria-hidden="true">
               <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-          </a>
+          </button>
 
           <p class="price-fine">
             50% upfront. 50% on launch. Money-back if we don't recover at least 50 conversations in week one.
@@ -1070,12 +1071,12 @@
         <span class="eyebrow reveal">Ready to launch?</span>
         <h2 class="reveal">Stop losing conversations.<br/>Start recovering revenue.</h2>
         <p class="final-sub reveal">15-minute audit call. No commitment. We'll show you exactly what your AI agent would handle.</p>
-        <a href="https://calendly.com/PLACEHOLDER" class="btn btn-primary reveal" target="_blank" rel="noopener" style="height:56px; padding:0 28px; font-size:16px;">
+        <button type="button" class="btn btn-primary reveal" onclick="openCalendly()" style="height:56px; padding:0 28px; font-size:16px;">
           Book your free audit
           <svg class="arrow" viewBox="0 0 14 14" fill="none" aria-hidden="true">
             <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-        </a>
+        </button>
         <p class="final-fine reveal">Limited to 3 brands per month — to ensure quality of delivery.</p>
       </div>
     </section>
@@ -1103,7 +1104,22 @@
     </div>
   </footer>
 
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
   <script>
+    // ─── CALENDLY ───
+    const CALENDLY_URL = 'https://calendly.com/constantine-shopreply/30min?background_color=0a0a0a&text_color=ffffff&primary_color=ff6b6b&hide_gdpr_banner=1';
+
+    function openCalendly() {
+      if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
+        window.Calendly.initPopupWidget({ url: CALENDLY_URL });
+      } else {
+        // Fallback: if widget script hasn't loaded yet, open in a new tab
+        window.open(CALENDLY_URL, '_blank', 'noopener');
+      }
+      return false;
+    }
+
     // ─── NAV: solid on scroll ───
     const nav = document.getElementById('nav');
     const onScroll = () => {
