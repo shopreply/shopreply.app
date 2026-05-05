@@ -411,6 +411,9 @@
       border: 1px solid var(--border);
       transition: border-color 240ms var(--ease), transform 240ms var(--ease), background 240ms var(--ease);
       overflow: hidden;
+      /* Cursor-tracked glow position (default: top-right before hover) */
+      --mx: 100%;
+      --my: 0%;
     }
     .step-card:hover {
       border-color: var(--border-strong);
@@ -421,9 +424,12 @@
       position: absolute;
       inset: 0;
       pointer-events: none;
-      background: radial-gradient(400px circle at top right, var(--accent-soft), transparent 60%);
+      /* Layered glow — hot core + diffuse halo, like real ambient light */
+      background:
+        radial-gradient(260px circle at var(--mx) var(--my), rgba(255, 107, 107, 0.09), transparent 65%),
+        radial-gradient(720px circle at var(--mx) var(--my), rgba(255, 107, 107, 0.035), transparent 75%);
       opacity: 0;
-      transition: opacity 320ms var(--ease);
+      transition: opacity 420ms var(--ease);
     }
     .step-card:hover::before { opacity: 1; }
 
@@ -442,12 +448,18 @@
       width: 24px;
       height: 24px;
       border-radius: 50%;
-      display: inline-grid;
-      place-items: center;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       background: var(--accent-soft);
       color: var(--accent);
       font-size: 12px;
       font-weight: 600;
+      line-height: 1;
+      letter-spacing: 0;
+      font-variant-numeric: tabular-nums;
+      /* Optical centering — Inter digits sit a hair below geometric center */
+      padding-bottom: 1px;
     }
 
     .step-card h3 {
@@ -705,6 +717,30 @@
       color: var(--text-2);
       font-size: 16px;
       line-height: 1.65;
+    }
+    .faq-a-inner p { margin: 0 0 14px 0; }
+    .faq-a-inner p:last-child { margin-bottom: 0; }
+    .faq-a-inner ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 16px 0;
+    }
+    .faq-a-inner li {
+      position: relative;
+      padding-left: 22px;
+      margin-bottom: 8px;
+      line-height: 1.55;
+    }
+    .faq-a-inner li:last-child { margin-bottom: 0; }
+    .faq-a-inner li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 11px;
+      width: 12px;
+      height: 1.5px;
+      background: var(--accent);
+      border-radius: 1px;
     }
 
     /* ─────────────────────────────────────────────
@@ -1022,6 +1058,24 @@
 
           <div class="faq-item">
             <button class="faq-q" aria-expanded="false">
+              <span>What does "Shopify integration" actually mean?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a"><div class="faq-a-inner">
+              <p>Your AI agent connects directly to your Shopify store in real-time, so it can:</p>
+              <ul>
+                <li>Check live inventory ("yes, that's in stock in size M")</li>
+                <li>Look up order status ("your order shipped yesterday")</li>
+                <li>Pull current pricing and active discounts</li>
+                <li>Tell customers about shipping options to their country</li>
+                <li>Answer questions about specific products in your catalog</li>
+              </ul>
+              <p>We use Shopify's official Storefront and Admin APIs with read-only access — no write permissions, ever. You can revoke access at any time from your Shopify admin.</p>
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
               <span>What if my catalog changes after launch?</span>
               <span class="faq-icon" aria-hidden="true"></span>
             </button>
@@ -1056,7 +1110,16 @@
               <span class="faq-icon" aria-hidden="true"></span>
             </button>
             <div class="faq-a"><div class="faq-a-inner">
-              Yes. English is included. Each additional language is +$500 at launch. Adding languages later is +$300.
+              <p>Yes. The base package includes full English localization with brand voice training and native-quality output.</p>
+              <p>For other languages, we offer full localization at +$500 per language — this includes:</p>
+              <ul>
+                <li>Translated knowledge base with native-speaker review</li>
+                <li>Region-specific information (shipping, returns, regulations)</li>
+                <li>Tone of voice adapted to language norms (formal vs casual register)</li>
+                <li>Complete QA testing in the target language</li>
+                <li>Localized escalation messages and UI</li>
+              </ul>
+              <p>We don't believe in machine-translated chatbots that embarrass brands in front of international customers. Each language gets the same care as English.</p>
             </div></div>
           </div>
 
@@ -1174,6 +1237,50 @@
       el.addEventListener('focus',      prefetchCalendly, { once: true, passive: true });
       el.addEventListener('touchstart', prefetchCalendly, { once: true, passive: true });
     });
+
+    // ─── STEP CARDS: cursor-following glow with physics-based lag ───
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduceMotion) {
+      document.querySelectorAll('.step-card').forEach((card) => {
+        let rafId = null;
+        let targetX = 0, targetY = 0;
+        let currentX = 0, currentY = 0;
+        const ease = 0.13; // 0–1, lower = more lag/inertia
+
+        const tick = () => {
+          currentX += (targetX - currentX) * ease;
+          currentY += (targetY - currentY) * ease;
+          card.style.setProperty('--mx', currentX + 'px');
+          card.style.setProperty('--my', currentY + 'px');
+
+          // Keep ticking until glow has settled within sub-pixel tolerance
+          if (Math.abs(targetX - currentX) > 0.3 || Math.abs(targetY - currentY) > 0.3) {
+            rafId = requestAnimationFrame(tick);
+          } else {
+            rafId = null;
+          }
+        };
+
+        // On enter: snap glow to entry point so it doesn't fly in from old position
+        card.addEventListener('mouseenter', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          targetX = currentX = x;
+          targetY = currentY = y;
+          card.style.setProperty('--mx', x + 'px');
+          card.style.setProperty('--my', y + 'px');
+        }, { passive: true });
+
+        // On move: just update target — tick() lerps toward it for natural lag
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          targetX = e.clientX - rect.left;
+          targetY = e.clientY - rect.top;
+          if (rafId === null) rafId = requestAnimationFrame(tick);
+        }, { passive: true });
+      });
+    }
 
     // ─── NAV: solid on scroll ───
     const nav = document.getElementById('nav');
