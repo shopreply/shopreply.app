@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service — ShopReply</title>
+  <meta name="description" content="ShopReply Terms and Conditions. The agreement governing use of our website and services." />
+  <meta name="robots" content="index, follow" />
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <link rel="preconnect" href="https://rsms.me/" />
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+
+  <style>
+    :root {
+      --bg: #0A0A0A;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.14);
+      --text: #FFFFFF;
+      --text-2: rgba(255, 255, 255, 0.72);
+      --text-3: rgba(255, 255, 255, 0.5);
+      --text-4: rgba(255, 255, 255, 0.32);
+
+      --accent: #FF6B6B;
+      --accent-soft: rgba(255, 107, 107, 0.14);
+      --accent-glow: rgba(255, 107, 107, 0.35);
+
+      --max-w: 1200px;
+      --content-w: 760px;
+
+      --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    @supports (font-variation-settings: normal) {
+      :root { --font-sans: 'Inter var', ui-sans-serif, system-ui, -apple-system, sans-serif; }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.7;
+      font-feature-settings: 'cv11', 'ss01', 'ss03';
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    @media (min-width: 768px) { body { font-size: 17px; } }
+
+    a { color: var(--accent); text-decoration: none; transition: opacity 180ms var(--ease); }
+    a:hover { opacity: 0.8; }
+
+    ::selection { background: var(--accent); color: #000; }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    @media (min-width: 768px) { .container { padding: 0 40px; } }
+
+    /* NAV */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10, 10, 10, 0.72);
+      backdrop-filter: saturate(180%) blur(16px);
+      -webkit-backdrop-filter: saturate(180%) blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+    .logo {
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      font-size: 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text);
+    }
+    .logo:hover { opacity: 1; }
+    .logo-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 12px var(--accent-glow);
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      height: 38px;
+      padding: 0 16px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: -0.005em;
+      cursor: pointer;
+      border: 1px solid transparent;
+      background: var(--accent);
+      color: #0A0A0A;
+      transition: transform 180ms var(--ease), box-shadow 240ms var(--ease);
+    }
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 28px -6px var(--accent-glow);
+      opacity: 1;
+    }
+
+    /* HEADER */
+    .doc-header {
+      padding: 80px 0 48px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 64px;
+    }
+    @media (min-width: 768px) {
+      .doc-header { padding: 120px 0 64px; margin-bottom: 80px; }
+    }
+    .doc-header .inner {
+      max-width: var(--content-w);
+      margin: 0 auto;
+    }
+    .eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+    h1 {
+      margin: 0 0 16px;
+      font-size: clamp(36px, 6vw, 56px);
+      font-weight: 600;
+      letter-spacing: -0.035em;
+      line-height: 1.05;
+    }
+    .updated {
+      color: var(--text-3);
+      font-size: 14px;
+      letter-spacing: -0.005em;
+    }
+    .intro {
+      margin-top: 24px;
+      color: var(--text-2);
+      font-size: clamp(17px, 2vw, 19px);
+      line-height: 1.55;
+      max-width: 640px;
+    }
+
+    /* CONTENT */
+    main { padding-bottom: 120px; }
+    .content {
+      max-width: var(--content-w);
+      margin: 0 auto;
+      color: var(--text-2);
+    }
+
+    .content h2 {
+      margin: 64px 0 20px;
+      font-size: clamp(22px, 3vw, 26px);
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+      color: var(--text);
+      scroll-margin-top: 96px;
+    }
+    .content h2:first-child { margin-top: 0; }
+
+    .content h3 {
+      margin: 36px 0 14px;
+      font-size: clamp(17px, 2.2vw, 19px);
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      color: var(--text);
+      scroll-margin-top: 96px;
+    }
+
+    .content p { margin: 0 0 18px; }
+    .content p:last-child { margin-bottom: 0; }
+
+    .content ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 22px;
+    }
+    .content li {
+      position: relative;
+      padding-left: 22px;
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+    .content li:last-child { margin-bottom: 0; }
+    .content li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 12px;
+      width: 12px;
+      height: 1.5px;
+      background: var(--accent);
+      border-radius: 1px;
+    }
+
+    .content strong { color: var(--text); font-weight: 600; }
+    .content em { color: var(--text-2); }
+
+    /* TOC */
+    .toc {
+      margin: 0 0 48px;
+      padding: 28px 28px 24px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+    }
+    .toc-title {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      margin: 0 0 18px;
+    }
+    .toc ol {
+      list-style: none;
+      counter-reset: toc;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 4px;
+    }
+    @media (min-width: 640px) {
+      .toc ol {
+        grid-template-columns: 1fr 1fr;
+        column-gap: 24px;
+      }
+    }
+    .toc li {
+      counter-increment: toc;
+      padding-left: 32px;
+      position: relative;
+      line-height: 1.5;
+    }
+    .toc li::before {
+      content: counter(toc, decimal-leading-zero);
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-variant-numeric: tabular-nums;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--text-4);
+      padding-top: 4px;
+    }
+    .toc a {
+      display: inline-block;
+      color: var(--text-2);
+      font-size: 14px;
+      padding: 4px 0;
+      transition: color 180ms var(--ease);
+    }
+    .toc a:hover { color: var(--accent); opacity: 1; }
+
+    /* Address */
+    .address {
+      padding: 18px 22px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-style: normal;
+      line-height: 1.6;
+      color: var(--text-2);
+      margin: 0 0 22px;
+    }
+    .address strong { display: block; color: var(--text); margin-bottom: 4px; }
+
+    /* Closing acknowledgment */
+    .closing {
+      margin-top: 64px;
+      padding: 28px 32px;
+      background: var(--accent-soft);
+      border: 1px solid rgba(255, 107, 107, 0.18);
+      border-radius: 14px;
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    .closing strong { color: var(--text); }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 48px 0 56px;
+    }
+    .footer-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      align-items: flex-start;
+    }
+    @media (min-width: 768px) {
+      .footer-grid {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+    .footer-brand { display: flex; flex-direction: column; gap: 4px; }
+    .footer-tagline { font-size: 13px; color: var(--text-3); }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      font-size: 14px;
+    }
+    .footer-links a { color: var(--text-2); }
+    .footer-links a:hover { color: var(--text); opacity: 1; }
+    .footer-bottom {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--text-3);
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      color: var(--text-3);
+      margin-bottom: 24px;
+      transition: color 180ms var(--ease);
+    }
+    .back-link:hover { color: var(--text); opacity: 1; }
+  </style>
+</head>
+<body>
+
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="/" class="logo" aria-label="ShopReply home">
+        <span class="logo-dot" aria-hidden="true"></span>
+        ShopReply
+      </a>
+      <a href="https://calendly.com/constantine-shopreply/30min" class="btn" target="_blank" rel="noopener">
+        Book a call
+      </a>
+    </div>
+  </header>
+
+  <section class="doc-header">
+    <div class="container">
+      <div class="inner">
+        <a href="/" class="back-link">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M11 7H3M6 4L3 7l3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Back to home
+        </a>
+        <span class="eyebrow">Legal</span>
+        <h1>Terms of Service</h1>
+        <p class="updated">Last updated May 06, 2026</p>
+        <p class="intro">Please read these terms and conditions carefully before using Our Service or engaging Our Services.</p>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <div class="container">
+      <article class="content">
+
+        <h2 id="toc">Table of Contents</h2>
+
+        <div class="toc">
+          <p class="toc-title">Sections</p>
+          <ol>
+            <li><a href="#interpretation">Interpretation and Definitions</a></li>
+            <li><a href="#acknowledgment">Acknowledgment</a></li>
+            <li><a href="#eligibility">Eligibility</a></li>
+            <li><a href="#description">Description of Services</a></li>
+            <li><a href="#engagement">Service Engagement Terms</a></li>
+            <li><a href="#payment">Payment Terms</a></li>
+            <li><a href="#subscription">Subscription (Retainer) Terms</a></li>
+            <li><a href="#guarantee">Performance Guarantee</a></li>
+            <li><a href="#ip">Intellectual Property</a></li>
+            <li><a href="#confidentiality">Confidentiality</a></li>
+            <li><a href="#third-party">Third-Party Services and Dependencies</a></li>
+            <li><a href="#links">Links to Other Websites</a></li>
+            <li><a href="#prohibited">Prohibited Uses</a></li>
+            <li><a href="#termination">Termination</a></li>
+            <li><a href="#liability">Limitation of Liability</a></li>
+            <li><a href="#disclaimer">"AS IS" and "AS AVAILABLE" Disclaimer</a></li>
+            <li><a href="#indemnification">Indemnification</a></li>
+            <li><a href="#governing-law">Governing Law and Disputes Resolution</a></li>
+            <li><a href="#eu">For European Union (EU) Users</a></li>
+            <li><a href="#us-compliance">United States Legal Compliance</a></li>
+            <li><a href="#severability">Severability and Waiver</a></li>
+            <li><a href="#translation">Translation Interpretation</a></li>
+            <li><a href="#entire">Entire Agreement</a></li>
+            <li><a href="#changes">Changes to These Terms and Conditions</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ol>
+        </div>
+
+        <h2 id="interpretation">1. Interpretation and Definitions</h2>
+
+        <h3>1.1 Interpretation</h3>
+        <p>The words whose initial letters are capitalized have meanings defined under the following conditions. The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.</p>
+
+        <h3>1.2 Definitions</h3>
+        <p>For the purposes of these Terms and Conditions:</p>
+
+        <ul>
+          <li><strong>Affiliate</strong> means an entity that controls, is controlled by, or is under common control with a party.</li>
+          <li><strong>Client</strong> means the individual, business, or other legal entity engaging the Company for AI Customer Support Agent setup, deployment, or maintenance services as defined in Section 5.</li>
+          <li><strong>Company</strong> (referred to as either "the Company", "We", "Us", "Our", or "ShopReply" in these Terms and Conditions) refers to ShopReply, operated by Kostiantyn Dehtiarenko as a sole proprietor based in Estonia.</li>
+          <li><strong>Country</strong> refers to Estonia.</li>
+          <li><strong>Deliverables</strong> means the AI Customer Support Agent, integrations, documentation, and any other materials produced and delivered to the Client under a Service Engagement.</li>
+          <li><strong>Device</strong> means any device that can access the Service such as a computer, a cell phone, or a digital tablet.</li>
+          <li><strong>Evaluation Period</strong> means the seven (7) consecutive calendar days immediately following the Launch Date of an AI Customer Support Agent deployment, during which performance is measured for purposes of the Performance Guarantee in Section 8.</li>
+          <li><strong>Knowledge Base</strong> means the collection of brand information, product data, FAQs, policies, and other materials provided by Client and used to train the AI Customer Support Agent.</li>
+          <li><strong>Launch Date</strong> means the date on which the AI Customer Support Agent is deployed to the Client's live store and made accessible to end users.</li>
+          <li><strong>Retainer</strong> means the optional monthly subscription service for ongoing maintenance, monitoring, and configuration changes as defined in Section 7.</li>
+          <li><strong>Service</strong> refers to (a) the Website, and (b) any professional services provided by the Company to the Client, including the design, configuration, deployment, and maintenance of AI Customer Support Agents.</li>
+          <li><strong>Service Engagement</strong> means a one-time project for the design, configuration, and deployment of an AI Customer Support Agent for the Client, governed by these Terms and any project-specific agreement.</li>
+          <li><strong>Setup Fee</strong> means the one-time fee charged for a Service Engagement, currently One Thousand Four Hundred Ninety-Seven United States Dollars (USD $1,497) unless otherwise agreed in writing.</li>
+          <li><strong>Subscription</strong> means the optional monthly Retainer service to which Client may subscribe following completion of a Service Engagement.</li>
+          <li><strong>Terms and Conditions</strong> (also referred to as "Terms") means these Terms and Conditions, including any documents expressly incorporated by reference, which govern Your access to and use of the Service and form the entire agreement between You and the Company regarding the Service.</li>
+          <li><strong>Third-Party Service</strong> means any service or platform owned or operated by a third party that is integrated with, accessed by, or relied upon for the operation of the Service or Deliverables, including but not limited to Shopify, Anthropic, OpenAI, Chatbase, Vercel, Supabase, Lemon Squeezy, Calendly, and Google.</li>
+          <li><strong>Website</strong> refers to ShopReply, accessible from <a href="https://shopreply.app/">https://shopreply.app/</a></li>
+          <li><strong>You</strong> (or "User") means the individual accessing or using the Service, or the company or other legal entity on behalf of which such individual is accessing or using the Service.</li>
+        </ul>
+
+        <h2 id="acknowledgment">2. Acknowledgment</h2>
+
+        <p>These are the Terms and Conditions governing the use of this Service and the agreement between You and the Company. These Terms and Conditions set out the rights and obligations of all users regarding the use of the Service.</p>
+
+        <p>Your access to and use of the Service is conditioned on Your acceptance of and compliance with these Terms and Conditions. These Terms and Conditions apply to all visitors, users, and others who access or use the Service, including Clients engaging the Company for professional services.</p>
+
+        <p>By accessing or using the Service, or by engaging the Company for a Service Engagement or Subscription, You agree to be bound by these Terms and Conditions. If You disagree with any part of these Terms and Conditions, then You may not access the Service or engage Our services.</p>
+
+        <p>You represent that You are over the age of 18. The Company does not permit those under 18 to use the Service.</p>
+
+        <p>Your access to and use of the Service is also subject to Our <a href="/privacy.html">Privacy Policy</a>, which describes how We collect, use, and disclose personal information. Please read Our Privacy Policy carefully before using Our Service.</p>
+
+        <h2 id="eligibility">3. Eligibility</h2>
+
+        <p>To engage the Company for a Service Engagement or Subscription, You represent and warrant that:</p>
+
+        <ul>
+          <li>You are at least 18 years of age and have the legal capacity to enter into binding agreements;</li>
+          <li>You are authorized to act on behalf of the business or legal entity You represent;</li>
+          <li>You operate a legitimate business that complies with applicable laws in its jurisdiction of operation;</li>
+          <li>Your business is not subject to United States government embargo or sanctions, and is not located in a country designated by the United States government as supporting terrorism;</li>
+          <li>You are not listed on any prohibited or restricted parties list of the United States, European Union, United Kingdom, or other relevant authority.</li>
+        </ul>
+
+        <p>The Company reserves the right to refuse service to any prospective Client at its sole discretion.</p>
+
+        <h2 id="description">4. Description of Services</h2>
+
+        <p>ShopReply provides:</p>
+
+        <ul>
+          <li><strong>Service Engagements:</strong> One-time projects for the design, configuration, training, and deployment of AI-powered customer support agents for Shopify-based direct-to-consumer (DTC) brands;</li>
+          <li><strong>Retainer Services:</strong> Optional ongoing monthly maintenance, monitoring, and configuration support following Service Engagement completion;</li>
+          <li><strong>Website Information:</strong> Marketing and informational content hosted at <a href="https://shopreply.app/">https://shopreply.app/</a>.</li>
+        </ul>
+
+        <p>The Company does not sell physical goods. All services are business-to-business (B2B) in nature.</p>
+
+        <h2 id="engagement">5. Service Engagement Terms</h2>
+
+        <h3>5.1 Scope of Work</h3>
+        <p>Each Service Engagement includes the following Deliverables, unless otherwise specified in writing:</p>
+        <ul>
+          <li>Discovery and brand voice configuration</li>
+          <li>AI agent training on the Knowledge Base provided by Client</li>
+          <li>Integration with Client's Shopify store via Storefront API and Admin API (read-only access)</li>
+          <li>Branded chat widget deployment on Client's production store</li>
+          <li>Custom escalation workflow configuration</li>
+          <li>Conversation logging and analytics dashboard access</li>
+          <li>Up to seven (7) days of post-Launch monitoring</li>
+          <li>Documentation handoff package</li>
+        </ul>
+
+        <h3>5.2 Excluded from Scope</h3>
+        <p>The following are NOT included in a standard Service Engagement and require separate written agreement and additional fees:</p>
+        <ul>
+          <li>Multilingual localization beyond English (additional USD $500 per language)</li>
+          <li>Integration with platforms other than Shopify</li>
+          <li>Voice channels (phone, voice assistants)</li>
+          <li>Custom analytics dashboards beyond standard offering</li>
+          <li>Marketing automations beyond customer support flows</li>
+          <li>On-call urgent support outside Business Hours</li>
+        </ul>
+
+        <h3>5.3 Timeline</h3>
+        <p>The Company commits to delivering a Service Engagement within seven (7) business days of receiving:</p>
+        <ul>
+          <li>Full payment of the upfront fifty percent (50%) of the Setup Fee; AND</li>
+          <li>All required Knowledge Base materials, brand voice information, and API credentials from Client.</li>
+        </ul>
+        <p>Delays caused by Client's failure to provide materials or approvals within reasonable time extend the delivery deadline accordingly.</p>
+
+        <h3>5.4 Client Responsibilities</h3>
+        <p>The Client agrees to:</p>
+        <ul>
+          <li>Provide accurate and complete Knowledge Base materials, including product information, policies, and brand voice guidance, within three (3) business days of project commencement;</li>
+          <li>Grant the Company read-only access to the Client's Shopify store via official Shopify API mechanisms;</li>
+          <li>Provide timely feedback during review milestones, with response within two (2) business days;</li>
+          <li>Ensure the chat widget remains live and visible on the production store for the full Evaluation Period;</li>
+          <li>Maintain a functioning Shopify store with stable infrastructure during the Evaluation Period.</li>
+        </ul>
+        <p>Failure to fulfill Client Responsibilities may delay delivery, invalidate the Performance Guarantee (Section 8), or result in additional charges.</p>
+
+        <h2 id="payment">6. Payment Terms</h2>
+
+        <h3>6.1 Service Engagement Payment</h3>
+        <p>The Setup Fee is payable as follows:</p>
+        <ul>
+          <li><strong>Fifty percent (50%) upfront,</strong> due upon contract signing and before commencement of work;</li>
+          <li><strong>Fifty percent (50%) on Launch Date,</strong> due within seven (7) calendar days of the AI Customer Support Agent being deployed to the Client's production store.</li>
+        </ul>
+
+        <h3>6.2 Payment Method</h3>
+        <p>All payments are processed through Lemon Squeezy or another third-party payment processor designated by the Company. Lemon Squeezy acts as Merchant of Record for transactions. Accepted payment methods include Visa, Mastercard, American Express, and PayPal.</p>
+
+        <h3>6.3 Currency</h3>
+        <p>All fees are denominated in United States Dollars (USD) unless otherwise specified in writing.</p>
+
+        <h3>6.4 Late Payments</h3>
+        <p>If the second installment payment is not received within seven (7) calendar days of the Launch Date:</p>
+        <ul>
+          <li>The Company may suspend access to the Deliverables, including disabling API access and removing the chat widget from the Client's store;</li>
+          <li>A late fee of one and a half percent (1.5%) per month, or the maximum permitted by applicable law (whichever is lower), shall accrue on outstanding amounts;</li>
+          <li>After thirty (30) days of non-payment, the Company may terminate the Service Engagement and pursue collection of unpaid amounts plus reasonable collection costs.</li>
+        </ul>
+
+        <h3>6.5 No Refund of Upfront Payment Once Work Has Begun</h3>
+        <p>The fifty percent (50%) upfront payment is non-refundable once the Company has commenced Discovery work or development. This payment covers Discovery, configuration, and deployment labor, which has real-world cost regardless of project outcome. The sole exception is the Performance Guarantee in Section 8.</p>
+
+        <h3>6.6 Taxes</h3>
+        <p>All fees are exclusive of taxes, duties, or governmental charges, which are the responsibility of the Client unless collected by the Merchant of Record. Lemon Squeezy as Merchant of Record may collect and remit applicable VAT, GST, or sales tax on behalf of the Client.</p>
+
+        <h2 id="subscription">7. Subscription (Retainer) Terms</h2>
+
+        <h3>7.1 Subscription Service</h3>
+        <p>Following completion of a Service Engagement, Client may opt into a monthly Retainer service at Four Hundred Ninety-Seven United States Dollars (USD $497) per calendar month, unless otherwise agreed in writing.</p>
+
+        <h3>7.2 What is Included</h3>
+        <p>The Retainer includes:</p>
+        <ul>
+          <li><strong>Unlimited monitoring:</strong> daily automated performance review, weekly escalation analysis, and proactive anomaly detection;</li>
+          <li><strong>Monthly tuning:</strong> knowledge base re-training, system prompt optimization, and up to twenty (20) test scenarios after each tuning round;</li>
+          <li><strong>Monthly performance report:</strong> detailed analytics, conversation topic analysis, and improvement recommendations;</li>
+          <li><strong>Up to four (4) hours per calendar month of configuration changes,</strong> including knowledge base updates, FAQ additions, brand voice refinements, and minor UI adjustments;</li>
+          <li><strong>Email support</strong> with response within one (1) business day.</li>
+        </ul>
+
+        <h3>7.3 What is Not Included</h3>
+        <p>The following are not included in the Retainer and require separate quotes and fees:</p>
+        <ul>
+          <li>New language localization</li>
+          <li>New platform integrations beyond Shopify</li>
+          <li>New channels (WhatsApp, Instagram DM, voice)</li>
+          <li>Major rebuilds or platform migrations</li>
+          <li>Custom analytics or reporting beyond standard offering</li>
+          <li>Bug fixes caused by Client modifications to the system</li>
+        </ul>
+
+        <h3>7.4 Hours Tracking and Overage</h3>
+        <ul>
+          <li>Configuration hours are tracked transparently and reported in the monthly performance report;</li>
+          <li>Hours do not roll over to subsequent months;</li>
+          <li>If configuration work exceeds four (4) hours in any given month, hours up to six (6) are billed at One Hundred Twenty-Five United States Dollars (USD $125) per hour;</li>
+          <li>If configuration work routinely exceeds six (6) hours per month, the Company may propose an upgrade to a Pro Retainer plan at a higher monthly rate;</li>
+          <li>Client will be notified upon reaching seventy-five percent (75%) of monthly hours and given an estimate before any overage occurs.</li>
+        </ul>
+
+        <h3>7.5 Auto-Renewal</h3>
+        <p>The Retainer is a recurring monthly subscription that automatically renews each calendar month until cancelled by either party in accordance with Section 7.6.</p>
+
+        <h3>7.6 Cancellation</h3>
+        <ul>
+          <li>Client may cancel the Retainer at any time by providing written notice (email is acceptable) to <a href="mailto:constantine@shopreply.app">constantine@shopreply.app</a> at least thirty (30) days before the next billing cycle;</li>
+          <li>The Company may cancel the Retainer with thirty (30) days' written notice to Client;</li>
+          <li>Cancellation does not entitle Client to a refund of the current month's Retainer fee. Service continues through the end of the current paid month;</li>
+          <li>Upon cancellation, all Client data, knowledge bases, and access credentials remain with Client. The Company will discontinue monitoring and maintenance services as of the cancellation effective date.</li>
+        </ul>
+
+        <h3>7.7 Failed Payments</h3>
+        <p>If a recurring Subscription payment fails:</p>
+        <ul>
+          <li>The Company will retry the charge through the payment processor;</li>
+          <li>If payment is not received within seven (7) calendar days, the Company may suspend Retainer services without notice;</li>
+          <li>If payment is not received within thirty (30) calendar days, the Subscription is automatically terminated.</li>
+        </ul>
+
+        <h2 id="guarantee">8. Performance Guarantee</h2>
+
+        <h3>8.1 Guarantee Statement</h3>
+        <p>The Company guarantees that the AI Customer Support Agent will handle at least fifty (50) qualifying conversations during the Evaluation Period, subject to the conditions in Section 8.3. If this threshold is not met and all conditions are satisfied, the Company will refund fifty percent (50%) of the Setup Fee paid by Client.</p>
+
+        <h3>8.2 Definition of "Qualifying Conversation"</h3>
+        <p>A "qualifying conversation" must meet ALL of the following criteria:</p>
+        <ul>
+          <li>Initiated by a unique end-user of the Client's Shopify store;</li>
+          <li>Contains at least one substantive user message (not test messages, spam, gibberish, or single-character inputs);</li>
+          <li>Receives at least one substantive AI response;</li>
+          <li>Does not result in immediate human escalation within the first two (2) AI responses.</li>
+        </ul>
+        <p>The following are EXCLUDED from the count:</p>
+        <ul>
+          <li>Test conversations by Client team, the Company team, or developers</li>
+          <li>Bot, scraper, or automated traffic</li>
+          <li>Conversations where the user explicitly requests a human in their first message</li>
+        </ul>
+
+        <h3>8.3 Conditions for Guarantee Application</h3>
+        <p>The Performance Guarantee applies only if ALL of the following conditions are met:</p>
+        <ul>
+          <li>The chat widget remains live and visible on the production store for the full seven (7) day Evaluation Period;</li>
+          <li>Client maintains at least eighty percent (80%) of their thirty-day (30-day) average store traffic during the Evaluation Period. If traffic drops by more than 20% due to factors outside the Company's control (e.g., paid ads paused, holidays, store technical issues), the conversation threshold is proportionally reduced;</li>
+          <li>Client provided complete and accurate Knowledge Base content during Discovery;</li>
+          <li>Client's store maintains a minimum of five hundred (500) daily unique visitors during the Evaluation Period. Stores with lower traffic require modified guarantee terms agreed in writing before project start.</li>
+        </ul>
+
+        <h3>8.4 Measurement of Conversations</h3>
+        <p>Conversation count is measured via:</p>
+        <ul>
+          <li>The Chatbase analytics dashboard (primary source);</li>
+          <li>The Company's internal logging system (secondary source).</li>
+        </ul>
+        <p>Both dashboards are accessible to Client in real-time. In the case of numerical discrepancy between sources, the lower count is authoritative.</p>
+
+        <h3>8.5 Refund Process</h3>
+        <p>If the Performance Guarantee is triggered and all conditions in Section 8.3 are met:</p>
+        <ul>
+          <li>Client must submit a written refund request to <a href="mailto:constantine@shopreply.app">constantine@shopreply.app</a> within seven (7) calendar days following the end of the Evaluation Period;</li>
+          <li>The Company will review the request and respond within seven (7) business days;</li>
+          <li>Approved refunds are processed within fourteen (14) business days through the original payment method;</li>
+          <li>The refund amount is fifty percent (50%) of the Setup Fee. Client retains ownership of all Deliverables.</li>
+        </ul>
+
+        <h3>8.6 Sole Remedy</h3>
+        <p>The Performance Guarantee is the sole and exclusive remedy under this Section. The Company is not liable for any other damages, including but not limited to lost revenue, lost opportunity, or consequential damages, arising from failure to meet the conversation threshold.</p>
+
+        <h3>8.7 Exclusions</h3>
+        <p>The Performance Guarantee does not cover:</p>
+        <ul>
+          <li>Subjective quality preferences regarding AI responses</li>
+          <li>Performance during periods of widget downtime caused by Client</li>
+          <li>Issues arising from changes Client made to the system without the Company's involvement</li>
+          <li>Any Retainer or post-launch service fees</li>
+        </ul>
+
+        <h2 id="ip">9. Intellectual Property</h2>
+
+        <h3>9.1 Client's Deliverables</h3>
+        <p>Upon receipt of full payment of the Setup Fee, Client owns all right, title, and interest in:</p>
+        <ul>
+          <li>The custom AI Customer Support Agent configured for Client's specific store;</li>
+          <li>The Knowledge Base content, including any improvements made by the Company during configuration;</li>
+          <li>Custom prompts, escalation workflows, and brand voice configurations specific to Client's deployment;</li>
+          <li>All conversation logs and analytics data generated by Client's AI agent.</li>
+        </ul>
+
+        <h3>9.2 Company's Retained Rights</h3>
+        <p>The Company retains all right, title, and interest in:</p>
+        <ul>
+          <li>Methodologies, frameworks, processes, templates, and documentation patterns used to deliver Service Engagements;</li>
+          <li>Generic prompt structures, evaluation processes, and implementation playbooks;</li>
+          <li>Software tools, scripts, and internal systems developed by the Company;</li>
+          <li>Aggregate, anonymized, non-identifying performance and usage data used for the Company's product improvement (no personally identifiable information or Client confidential information is included);</li>
+          <li>The ShopReply brand, name, logo, website content, and marketing materials.</li>
+        </ul>
+
+        <h3>9.3 No Reverse Engineering</h3>
+        <p>Client agrees not to:</p>
+        <ul>
+          <li>Reverse engineer, decompile, or disassemble the Company's proprietary methodologies or templates;</li>
+          <li>Resell, sublicense, or repackage the Company's Deliverables as a service to third parties without explicit written consent;</li>
+          <li>Remove, modify, or obscure any proprietary notices on Company materials.</li>
+        </ul>
+
+        <h3>9.4 Limited License to Use Company Materials</h3>
+        <p>Client receives a limited, non-exclusive, non-transferable license to use Company materials provided as part of Deliverables solely for Client's internal business purposes.</p>
+
+        <h2 id="confidentiality">10. Confidentiality</h2>
+
+        <h3>10.1 Confidential Information</h3>
+        <p>Both parties acknowledge that during the course of a Service Engagement or Subscription, they may receive confidential and proprietary information from the other party, including but not limited to:</p>
+        <ul>
+          <li>Business strategies, customer lists, and financial information</li>
+          <li>Technical specifications, source code, and API credentials</li>
+          <li>Knowledge Base content and brand voice documents</li>
+          <li>Pricing, contracts, and commercial terms</li>
+        </ul>
+
+        <h3>10.2 Obligations</h3>
+        <p>Each party agrees to:</p>
+        <ul>
+          <li>Maintain the confidentiality of the other party's Confidential Information using at least the same degree of care it uses to protect its own confidential information, but no less than reasonable care;</li>
+          <li>Use Confidential Information solely for the purpose of performing under these Terms;</li>
+          <li>Not disclose Confidential Information to any third party without prior written consent, except to employees, contractors, or authorized agents who have a need to know and are bound by confidentiality obligations.</li>
+        </ul>
+
+        <h3>10.3 Exclusions</h3>
+        <p>Confidential Information does not include information that:</p>
+        <ul>
+          <li>Is or becomes publicly available through no breach of these Terms;</li>
+          <li>Was rightfully known by the receiving party before disclosure;</li>
+          <li>Is rightfully obtained from a third party without confidentiality obligations;</li>
+          <li>Is independently developed without use of the disclosing party's Confidential Information.</li>
+        </ul>
+
+        <h3>10.4 Duration</h3>
+        <p>Confidentiality obligations survive termination of these Terms for a period of three (3) years.</p>
+
+        <h2 id="third-party">11. Third-Party Services and Dependencies</h2>
+
+        <h3>11.1 Reliance on Third-Party Services</h3>
+        <p>The Company's Deliverables rely on Third-Party Services including Shopify, Anthropic (Claude), OpenAI, Chatbase, Vercel, Supabase, Lemon Squeezy, Calendly, and Google Workspace. The availability, performance, pricing, and functionality of these services are outside the Company's control.</p>
+
+        <h3>11.2 No Warranty for Third-Party Services</h3>
+        <p>The Company makes no warranty regarding the continuous availability, accuracy, or performance of Third-Party Services. The Company is not liable for service interruptions, errors, or changes caused by Third-Party Services.</p>
+
+        <h3>11.3 Cost Pass-Through</h3>
+        <p>API usage costs (e.g., Anthropic, OpenAI) are paid directly by Client to the relevant third-party provider, unless otherwise agreed in writing. Typical monthly API costs range from twenty to one hundred United States Dollars (USD $20–$100) depending on conversation volume.</p>
+
+        <h3>11.4 Discontinued Third-Party Services</h3>
+        <p>If a Third-Party Service is discontinued or substantially changes its terms during the course of a Service Engagement or Subscription:</p>
+        <ul>
+          <li>The Company will use commercially reasonable efforts to migrate to an equivalent service;</li>
+          <li>Migration work exceeding two (2) hours may be billed at the overage rate or as a separate project;</li>
+          <li>Neither party is liable for damages caused by Third-Party Service changes outside its control.</li>
+        </ul>
+
+        <h2 id="links">12. Links to Other Websites</h2>
+
+        <p>Our Service may contain links to third-party websites or services that are not owned or controlled by the Company.</p>
+
+        <p>The Company has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third-party websites or services. You further acknowledge and agree that the Company shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with the use of or reliance on any such content, goods, or services available on or through any such websites or services.</p>
+
+        <p>We strongly advise You to read the terms and conditions and privacy policies of any third-party websites or services that You visit.</p>
+
+        <h2 id="prohibited">13. Prohibited Uses</h2>
+
+        <p>You may not use the Service:</p>
+        <ul>
+          <li>To advertise or offer to sell goods and services unrelated to the Service Engagement;</li>
+          <li>For any unlawful purpose or to violate any applicable laws;</li>
+          <li>To transmit malicious code, viruses, or harmful software;</li>
+          <li>To attempt unauthorized access to the Company's systems or infrastructure;</li>
+          <li>To impersonate the Company or its representatives;</li>
+          <li>To engage in any conduct that restricts or inhibits anyone's use of the Service.</li>
+        </ul>
+        <p>The Company reserves the right to terminate access immediately for violations of this Section.</p>
+
+        <h2 id="termination">14. Termination</h2>
+
+        <h3>14.1 Termination by Either Party</h3>
+        <ul>
+          <li>For Service Engagements: Either party may terminate before project commencement with written notice and full refund of any upfront payment;</li>
+          <li>After project commencement, termination of a Service Engagement follows the refund rules in Section 6.5;</li>
+          <li>For Subscriptions: Cancellation follows Section 7.6.</li>
+        </ul>
+
+        <h3>14.2 Termination for Breach</h3>
+        <p>The Company may terminate any Service Engagement or Subscription immediately, without prior notice, if Client:</p>
+        <ul>
+          <li>Fails to make payment when due (subject to grace periods in Section 6.4);</li>
+          <li>Materially breaches these Terms;</li>
+          <li>Engages in fraudulent, illegal, or harmful activity;</li>
+          <li>Engages in chargebacks or payment disputes without first attempting good-faith resolution.</li>
+        </ul>
+
+        <h3>14.3 Effect of Termination</h3>
+        <p>Upon termination:</p>
+        <ul>
+          <li>Client's right to use the Service ceases immediately, except for Deliverables already paid for in full;</li>
+          <li>Outstanding invoices become immediately due and payable;</li>
+          <li>Sections that by their nature should survive termination (including Sections 6, 8, 9, 10, 15, 16, 17, and 19) shall survive.</li>
+        </ul>
+
+        <h2 id="liability">15. Limitation of Liability</h2>
+
+        <h3>15.1 Liability Cap</h3>
+        <p>Notwithstanding any damages that You might incur, the entire liability of the Company and any of its suppliers under any provision of these Terms, and Your exclusive remedy for all of the foregoing, shall be limited to the greater of:</p>
+        <ul>
+          <li>The total amount actually paid by You to the Company in the twelve (12) months preceding the claim;</li>
+          <li>One Hundred United States Dollars (USD $100).</li>
+        </ul>
+
+        <h3>15.2 Excluded Damages</h3>
+        <p>To the maximum extent permitted by applicable law, in no event shall the Company or its suppliers be liable for any special, incidental, indirect, exemplary, punitive, or consequential damages whatsoever, including but not limited to:</p>
+        <ul>
+          <li>Damages for loss of profits, revenue, or business opportunity</li>
+          <li>Damages for loss of data or other information</li>
+          <li>Damages for business interruption</li>
+          <li>Damages for loss of customers or customer relationships</li>
+          <li>Damages for lost goodwill</li>
+        </ul>
+        <p>This limitation applies even if the Company has been advised of the possibility of such damages, and even if the remedy fails of its essential purpose.</p>
+
+        <h3>15.3 Aggregate Limit</h3>
+        <p>The cumulative liability of the Company under all claims, whether arising from Service Engagements, Subscriptions, or otherwise, shall not exceed the limit set forth in Section 15.1.</p>
+
+        <h3>15.4 Jurisdictional Limitations</h3>
+        <p>Some jurisdictions do not allow the exclusion of implied warranties or limitation of liability for incidental or consequential damages. In such jurisdictions, each party's liability will be limited to the greatest extent permitted by law.</p>
+
+        <h2 id="disclaimer">16. "AS IS" and "AS AVAILABLE" Disclaimer</h2>
+
+        <p>The Service and Deliverables are provided to You "AS IS" and "AS AVAILABLE" and with all faults and defects without warranty of any kind. To the maximum extent permitted under applicable law, the Company, on its own behalf and on behalf of its Affiliates and its and their respective licensors and service providers, expressly disclaims all warranties, whether express, implied, statutory, or otherwise, with respect to the Service and Deliverables, including all implied warranties of merchantability, fitness for a particular purpose, title, and non-infringement.</p>
+
+        <p>Without limitation to the foregoing, the Company provides no warranty or undertaking, and makes no representation of any kind that:</p>
+        <ul>
+          <li>The Service or Deliverables will meet Your requirements;</li>
+          <li>The Service or Deliverables will achieve any intended results;</li>
+          <li>The Service or Deliverables will be compatible or work with any other software, applications, systems, or services beyond those explicitly integrated;</li>
+          <li>The Service or Deliverables will operate without interruption;</li>
+          <li>The Service or Deliverables will meet any performance or reliability standards;</li>
+          <li>The Service or Deliverables will be error-free or that any errors or defects can or will be corrected;</li>
+          <li>AI-generated responses will be accurate, appropriate, or suitable for any particular purpose. Client acknowledges that AI-based services have inherent limitations and may produce incorrect or unsuitable outputs.</li>
+        </ul>
+
+        <p>The Company specifically disclaims liability for outcomes resulting from AI-generated responses, including but not limited to incorrect product recommendations, inaccurate order information, or miscommunication with end-users.</p>
+
+        <p>Some jurisdictions do not allow the exclusion of certain types of warranties or limitations on applicable statutory rights of a consumer, so some or all of the above exclusions and limitations may not apply to You. In such case, the exclusions and limitations set forth in this section shall apply to the greatest extent enforceable under applicable law.</p>
+
+        <h2 id="indemnification">17. Indemnification</h2>
+
+        <p>Client agrees to indemnify, defend, and hold harmless the Company, its affiliates, employees, contractors, and agents from any claims, damages, liabilities, costs, or expenses (including reasonable attorneys' fees) arising from:</p>
+        <ul>
+          <li>Client's breach of these Terms;</li>
+          <li>Client's violation of applicable laws or regulations;</li>
+          <li>Content provided by Client for use in the Knowledge Base, including any third-party intellectual property infringement;</li>
+          <li>Client's misuse of the Deliverables;</li>
+          <li>Disputes between Client and Client's end-users arising from the operation of the AI Customer Support Agent.</li>
+        </ul>
+
+        <h2 id="governing-law">18. Governing Law and Disputes Resolution</h2>
+
+        <h3>18.1 Governing Law</h3>
+        <p>The laws of Estonia, excluding its conflicts of law rules, shall govern these Terms and Your use of the Service. Your use of the Service may also be subject to other local, state, national, or international laws.</p>
+
+        <h3>18.2 Informal Dispute Resolution</h3>
+        <p>If You have any concern or dispute about the Service, You agree to first try to resolve the dispute informally by contacting the Company at <a href="mailto:constantine@shopreply.app">constantine@shopreply.app</a> and providing a detailed description of the issue and proposed resolution. The parties shall attempt in good faith to resolve the dispute within thirty (30) days.</p>
+
+        <h3>18.3 Jurisdiction</h3>
+        <p>Any dispute that cannot be resolved informally shall be subject to the exclusive jurisdiction of the courts of Tallinn, Estonia, unless a different jurisdiction is required by applicable consumer protection law.</p>
+
+        <h2 id="eu">19. For European Union (EU) Users</h2>
+
+        <p>If You are a European Union consumer, You will benefit from any mandatory provisions of the law of the country in which You are resident. Nothing in these Terms shall affect Your statutory rights as a consumer under EU law.</p>
+
+        <h2 id="us-compliance">20. United States Legal Compliance</h2>
+
+        <p>You represent and warrant that:</p>
+        <ul>
+          <li>You are not located in a country that is subject to the United States government embargo, or that has been designated by the United States government as a "terrorist supporting" country;</li>
+          <li>You are not listed on any United States government list of prohibited or restricted parties.</li>
+        </ul>
+
+        <h2 id="severability">21. Severability and Waiver</h2>
+
+        <h3>21.1 Severability</h3>
+        <p>If any provision of these Terms is held to be unenforceable or invalid, such provision will be changed and interpreted to accomplish the objectives of such provision to the greatest extent possible under applicable law, and the remaining provisions will continue in full force and effect.</p>
+
+        <h3>21.2 Waiver</h3>
+        <p>Except as provided herein, the failure to exercise a right or to require performance of an obligation under these Terms shall not affect a party's ability to exercise such right or require such performance at any time thereafter, nor shall the waiver of a breach constitute a waiver of any subsequent breach.</p>
+
+        <h2 id="translation">22. Translation Interpretation</h2>
+
+        <p>These Terms and Conditions may have been translated if We have made them available to You on Our Service. You agree that the original English text shall prevail in the case of a dispute.</p>
+
+        <h2 id="entire">23. Entire Agreement</h2>
+
+        <p>These Terms, together with the <a href="/privacy.html">Privacy Policy</a> and any project-specific written agreement, constitute the entire agreement between You and the Company regarding the Service and supersede all prior agreements, communications, or representations.</p>
+
+        <h2 id="changes">24. Changes to These Terms and Conditions</h2>
+
+        <p>We reserve the right, at Our sole discretion, to modify or replace these Terms at any time. If a revision is material, We will make reasonable efforts to provide at least thirty (30) days' notice prior to any new terms taking effect. What constitutes a material change will be determined at Our sole discretion.</p>
+
+        <p>By continuing to access or use Our Service after those revisions become effective, You agree to be bound by the revised terms. If You do not agree to the new terms, in whole or in part, please stop using the Service.</p>
+
+        <p>For active Service Engagements at the time of changes, the Terms in effect at the time of contract signing govern that engagement.</p>
+
+        <h2 id="contact">25. Contact Us</h2>
+
+        <p>If You have any questions about these Terms and Conditions, You can contact Us:</p>
+        <ul>
+          <li>By email: <a href="mailto:constantine@shopreply.app">constantine@shopreply.app</a></li>
+          <li>Via the contact form on the Website</li>
+        </ul>
+
+        <address class="address">
+          <strong>Kostiantyn Dehtiarenko</strong>
+          Tornimäe Street 3<br>
+          Tallinn 10145<br>
+          Estonia
+        </address>
+
+        <div class="closing">
+          By using the Service or engaging the Company for a Service Engagement or Subscription, <strong>You acknowledge that You have read, understood, and agree to be bound by these Terms and Conditions.</strong>
+        </div>
+
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="logo">
+            <span class="logo-dot" aria-hidden="true"></span>
+            ShopReply
+          </a>
+          <span class="footer-tagline">AI Support for DTC Brands</span>
+        </div>
+        <nav class="footer-links" aria-label="Footer">
+          <a href="mailto:constantine@shopreply.app">Contact</a>
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms of Service</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">© 2026 ShopReply. Built in Tallinn 🇪🇪.</div>
+    </div>
+  </footer>
+
+</body>
+</html>
